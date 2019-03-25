@@ -1,0 +1,18 @@
+{% if messages %}
+<ul class ="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"(% endif %}>
+    {{ message }}
+
+    </li>
+</ul>
+{% endif %}
+
+<h1>
+    Create new post
+</h1>
+<form method="POST" action = '.'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type='submit' value='create'>
+</form>
